@@ -59,8 +59,8 @@
       <section id="first">
         <div id="content">
           <h2 class="limited-line">
-            <span>Masala-1.</span>Qiymatlari sonlardan iborat bolgan object
-            berilgan. Qiymatlarini n martaga ochiruvchi dastur tuzing.
+            <span>Masala-1.</span>Berilgan stringdagi yagona (takrorlanmaydigan)
+            so'zlarni toping.
           </h2>
           <br />
           <input id="inputValue" type="text" placeholder="n = (Any number)" />
@@ -87,12 +87,15 @@
       <section id="second">
         <div id="content">
           <h2 class="limited-line">
-            <span>Masala-2 </span> Quyidagi korinishda object lardan tuzilgan
-            array berildi. Agar read property true bolsa osha kitob oqigan deb
-            chiqarsin, aks holda oqilmagan deb chiqarsin
+            <span>Masala-2 </span> Berilgan raqamlar ro'yxatidagi tub sonlarni
+            toping.
           </h2>
           <br />
-
+          <input
+            id="inputValue2"
+            type="text"
+            placeholder="Ex: 1 2 3 4 5"
+          />
           <button class="button-85" role="button" onclick="m2()">
             Hisoblash
           </button>
@@ -116,8 +119,8 @@
       <section id="third">
         <div id="content">
           <h2 class="limited-line">
-            <span>Masala-3 </span> Berilgan gapdagi so'zlarni o'zini teskari
-            qilib yozib beradigan funksiya tuzing.
+            <span>Masala-3 </span>Berilgan raqamlar ro'yxatida ketma-ket uchta
+            toq yoki juft son bor-yo'qligini tekshiring.
           </h2>
           <br />
 
@@ -149,11 +152,11 @@
       <section id="fourth">
         <div id="content">
           <h2 class="limited-line">
-            <span>Masala-4</span>raydagi eng yosh va eng qarilarni topib, ularni
-            yoshlarini farqini toping. (sort).
+            <span>Masala-4</span>Berilgan satr ichidagi barcha raqamlarni ajratib, tartiblang (o'sish tartibida)
           </h2>
           <br />
 
+          <input id="inputValue4" type="text" placeholder="Ex: He23o W0rld" />
           <button class="button-85" role="button" onclick="m4()">
             Hisoblash
           </button>
@@ -174,9 +177,7 @@
         <div id="content">
           <h2 class="limited-line">
             <span>Masala-5.</span>
-            Gapdagi eng uzun va eng qisqa sozlarni aniqlab {minWord: “…,
-            maxWord: “….} qiymat qaytaruvchi minManWord() nomli function
-            yarating
+            Berilgan satr ichidagi barcha raqamlarni olib tashlang.
           </h2>
           <br />
           <input id="inputValue5" type="text" placeholder="Ex: 1 2 3 4 5" />
@@ -205,17 +206,15 @@
         <div id="content">
           <h2 class="limited-line">
             <span>Masala-6.</span>
-            Ixtiyoriy arrow function yarating va uning parametriga bir nechta
-            sonlar berilsin. va o'sha sonlar yig'indisini arrayning element lari
-            ko'rinishida ifodalang:
+            Bir nechta productlardan ID si 4 bo'lgan productni o'chiruvchi
+            dastur yozing. (filter)
           </h2>
           <br />
-          <input id="inputValue6" type="text" placeholder="Ex: Hello World" />
           <button class="button-85" role="button" onclick="m6()">
             Hisoblash
           </button>
 
-          <div class="output" id="output6">Output</div>
+          <div class="output" id="output6" style="text-align: start; padding: 10px; font-size: medium;"></div>
         </div>
         <img
           class="code"
@@ -225,105 +224,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
           "
           src="./images/Screenshot_6.png"
-          alt=""
-        />
-      </section>
-      <section id="seventh">
-        <div id="content">
-          <h2 class="limited-line">
-            <span>Masala-7.</span>
-            Objectning kalit va qiymatlarining string ko'rinishidagi
-            yig'indisidan iborat array qaytaring. (Object.entries, map, join)
-          </h2>
-          <br />
-          <button class="button-85" role="button" onclick="m7()">
-            Hisoblash
-          </button>
-          <div class="output" id="output7"><p>Output</p></div>
-        </div>
-        <img
-          class="code"
-          style="
-            width: 45%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          "
-          src="./images/Screenshot_7.png"
-          alt=""
-        />
-      </section>
-      <section id="eight">
-        <div id="content">
-          <h2 class="limited-line">
-            <span>Masala-8.</span>
-            Ixtiyoriy object yarating {a:1,b:22} <br />
-            value larinig yig'indisini toping 23 <br />
-            value larining yigindising raqamlar yig'indisini toping
-            <span>2+3=5 </span>
-          </h2>
-          <br />
-          <button class="button-85" role="button" onclick="m8()">
-            Hisoblash
-          </button>
-          <div class="output" id="output8"><p>Output</p></div>
-        </div>
-        <img
-          class="code"
-          style="
-            width: 45%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          "
-          src="./images/Screenshot_8.png"
-          alt=""
-        />
-      </section>
-      <section id="ninth">
-        <div id="content">
-          <h2 class="limited-line">
-            <span>Masala-9.</span>
-            Argument sifatida berilgan sonning nechchi xonali ekanligini
-            aniqlaydigan function tuzing.
-          </h2>
-          <br />
-          <input type="text" id="inputValue9" placeholder="Ex: 1234" />
-          <button class="button-85" role="button" onclick="m9()">
-            Hisoblash
-          </button>
-          <div class="output" id="output9"><p>Output</p></div>
-        </div>
-        <img
-          class="code"
-          style="
-            width: 45%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          "
-          src="./images/Screenshot_88.png"
-          alt=""
-        />
-      </section>
-      <section id="tenth">
-        <div id="content">
-          <h2 class="limited-line">
-            <span>Masala-10.</span>
-            Berilgan sonni teskari qiladigan function yarating.
-          </h2>
-          <br />
-          <input type="text" id="inputValue10" placeholder="Ex: 1234" />
-          <button class="button-85" role="button" onclick="m10()">
-            Hisoblash
-          </button>
-          <div class="output" id="output10"><p>Output</p></div>
-        </div>
-        <img
-          class="code"
-          style="
-            width: 45%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          "
-          src="./images/Screenshot_99.png"
           alt=""
         />
       </section>

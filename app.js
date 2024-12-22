@@ -1,170 +1,98 @@
 function m1() {
-  const n = +document.getElementById("inputValue").value;
-  let obj = {
-    a: 2,
-    b: 3,
-    c: 4,
-  };
-  const res = Object.entries(obj).map(([key, value]) => [key, value * n]);
-  document.getElementById("output").innerHTML = `<pre>${JSON.stringify(
-    Object.fromEntries(res),
-    null,
-    2
-  )}</pre>`;
-}
-
-function m2() {
-  const books = [
-    { title: "Halqa", author: "Akrom Malik", read: false },
-    { title: "Dunyoning ishlari", author: "O’tkir Hoshimov", read: true },
-    {
-      title: "Iymon",
-      author: "Shayx Muhammad Sodiq Muhammad Yusuf",
-      read: true,
-    },
-  ];
-  books.forEach((book) => {
-    if (book.read) {
-      document.getElementById(
-        "output2"
-      ).innerHTML += `${book.title} - ${book.author}:  o'qildi. <br>`;
-    } else {
-      document.getElementById(
-        "output2"
-      ).innerHTML += `${book.title} - ${book.author}:  o'qilmadi <br>`;
-    }
-  });
-}
-function m3() {
-  const input = document.getElementById("inputValue3").value;
+  const input = document.getElementById("inputValue").value;
   const arr = input.trim().split(" ");
-  let obj = {};
-
+  const uniq = [];
   for (let i = 0; i < arr.length; i++) {
     let count = 0;
-    const el = arr[i];
-    for (let c = 0; c < arr.length; c++) {
-      const e = arr[c];
-      if (el === e) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
         count++;
       }
     }
-    obj[el] = count;
+    if (count === 1) {
+      uniq.push(arr[i]);
+    }
   }
+  document.getElementById("output").innerHTML = uniq.join(", ");
+}
 
-  const formattedOutput = JSON.stringify(obj, null, 4);
-  document.getElementById(
-    "output3"
-  ).innerHTML = `<pre>${formattedOutput}</pre>`;
+function m2() {
+  const input = document.getElementById("inputValue2").value;
+  const arr = input.trim().split(" ").map(Number);
+  let tub = arr.filter((son) => {
+    if (son < 2) return false;
+    for (let i = 2; i < son; i++) {
+      if (son % i === 0) return false;
+    }
+    return true;
+  });
+  document.getElementById("output2").innerHTML = tub.join(", ");
+}
+
+function m3() {
+  const input = document.getElementById("inputValue3").value;
+  const arr = input.trim().split(" ").map(Number);
+  let juft = 0;
+  let toq = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const son = arr[i];
+    if (son % 2 === 0) {
+      juft++;
+      toq = 0;
+    } else {
+      toq++;
+      juft = 0;
+    }
+    if (juft === 3)
+      return (document.getElementById("output3").innerHTML =
+        "3 ta Juft ketma-ket");
+    if (toq === 3)
+      return (document.getElementById("output3").innerHTML =
+        "3 ta Toq ketma-ket");
+  }
+  document.getElementById("output3").innerHTML = "Unday emas";
 }
 
 function m4() {
-  const obj = [
-    {
-      name: "John",
-      age: 30,
-    },
-    {
-      name: "Simon",
-      age: 10,
-    },
-    {
-      name: "Jack",
-      age: 20,
-    },
-    {
-      name: "Cate",
-      age: 80,
-    },
-    {
-      name: "Jane",
-      age: 67,
-    },
-  ];
-
-  const sorted = obj.sort((a, b) => b.age - a.age);
-  let res = sorted[0].age - sorted[sorted.length - 1].age;
-  document.getElementById("output4").innerHTML = `Yosh farqi: ${res}`;
+  const input = document.getElementById("inputValue4").value;
+  const arr = input.trim().split("").map(Number);
+  let numbers = arr.filter((item) => {
+    if (!isNaN(item)) {
+      return item;
+    }
+  });
+  const sorted = numbers.sort((a, b) => a - b);
+  document.getElementById("output4").innerHTML = sorted.join(", ");
 }
 
 function m5() {
   const input = document.getElementById("inputValue5").value;
-  const array = input.trim().split(" ");
-  let obj = {};
-  let length = [];
-  for (let i = 0; i < array.length; i++) {
-    length.push(array[i].length);
-  }
-  const minL = Math.min(...length);
-  const maxL = Math.max(...length);
-  obj.minWord = array.filter((item) => item.length === minL).join("");
-  obj.maxWord = array.filter((item) => item.length === maxL).join("");
-  document.getElementById("output5").innerHTML = `<pre> ${JSON.stringify(
-    obj,
-    null,
-    2
-  )} </pre>`;
+  const newStr = input.replace(/[0-9]/g, "");
+  document.getElementById("output5").innerHTML = newStr;
 }
 
-const m6 = () => {
-  const inputValue = document.getElementById("inputValue6").value;
-  const numbers = inputValue.split(" ").map(Number);
-  const sum = numbers.reduce((acc, num) => acc + num, 0);
-  const result = sum
-    .toString()
-    .split("")
-    .map((num) => parseInt(num));
-  document.getElementById("output6").innerHTML = `Result: [${result.join(
-    ", "
-  )}]`;
-};
+function m6() {
+  const product = [
+    {
+      brand: "Apple",
+      model: "Macbook",
+      id: 4,
+    },
+    {
+      brand: "Samsung",
+      model: "UltraBook",
+      id: 3,
+    },
+    {
+      brand: "Xiaomi",
+      model: "14 ultra",
+      id: 4,
+    },
+  ];
 
-function m7() {
-  let obj = { a: 2, b: 5, c: 7 };
-  let res = Object.entries(obj)
-    .map(([key, value]) => `'${key}${value}'`)
-    .join(", ");
-  document.getElementById("output7").innerHTML = `<pre>[${res}]</pre>`;
+  const filtered = product.filter((item) => item.id === 4);
+  document.getElementById("output6").innerHTML = ` <pre> ${JSON.stringify(filtered, null, 2)}</pre> `; 
 }
-
-function m8() {
-  let obj = { a: 2, b: 5, c: 7 };
-  let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
-  let res = sum
-    .toString()
-    .split("")
-    .map(Number)
-    .reduce((acc, num) => acc + num, 0);
-  document.getElementById("output8").innerHTML = `<pre>[${res}]</pre>`;
-}
-
-function m9() {
-  const input9 = +document.getElementById("inputValue9").value;
-  const digitCount = input9.toString().length;
-  document.getElementById(
-    "output9"
-  ).innerHTML = `<pre>Son Uzunligi: ${digitCount}</pre>`;
-  
-}
-
-
-
-
-
-function m10() {
-  const input10 = +document.getElementById("inputValue10").value;
-  const reversed = input10.toString().split("").reverse().join("");
-  const res = parseInt(reversed);
-  document.getElementById("output10").innerHTML = `<pre>${res}</pre>`;
-}
-
-
-
-
-
-
-
-
 
 
 
@@ -240,10 +168,12 @@ document.addEventListener("mousemove", (e) => {
 });
 var swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
+  mouseWheel: true,
   grabCursor: true,
   loop: true,
   centeredSlides: true,
   slidesPerView: "auto",
+
   coverflowEffect: {
     rotate: 50,
     stretch: 0,
